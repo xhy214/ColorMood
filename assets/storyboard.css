@@ -1,0 +1,34 @@
+/* 分镜只呈现一处标题与旁白，导航用编号和对应的情绪颜色。 */
+#storyboard-controls { margin: 0 0 12px; padding: 10px 12px; border-radius: 16px; border: 1px solid #e3e6f1; background: linear-gradient(115deg,#f2f3fc,#f5f8f9); }
+.storyboard-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.storyboard-head > span { font-size: 12px; font-weight: 600; color: #7a85b1; }
+.storyboard-actions { display: flex; align-items: center; gap: 10px; }
+.storyboard-play { min-width: 66px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 999px; background: #e5e8f9; color: #6477b3; padding: 7px 12px; font: inherit; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+#storyboard-play-icon { width: 14px; height: 14px; flex-shrink: 0; }
+#btn-storyboard-overview { min-height: 30px; border: 1px solid #b5c1e0; border-radius: 999px; background: #fff; padding: 6px 11px; color: #4d639a; box-shadow: 0 2px 5px rgba(82,101,155,.08); font: inherit; font-size: 12px; font-weight: 600; white-space: nowrap; cursor: pointer; }
+#btn-storyboard-overview:active { background: #eef1fc; box-shadow: none; }
+#storyboard-scenes { display: flex; gap: 7px; }
+.storyboard-scene { position: relative; flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 8px; height: 34px; padding: 6px 10px 8px; overflow: hidden; border: 1px solid rgba(125,139,179,.18); border-radius: 9px; color: #697792; font: inherit; cursor: pointer; opacity: .82; }
+.storyboard-scene.selected { border-color: #899bc9; box-shadow: 0 0 0 1px rgba(137,155,201,.15); color: #4d6297; opacity: 1; }
+.scene-swatch { width: 8px; height: 8px; flex-shrink: 0; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255,255,255,.28); }
+.scene-number { font-size: 11px; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+.scene-rail { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: rgba(125,139,179,.1); overflow: hidden; }
+.scene-fill { display: block; width: 0; height: 100%; }
+#storyboard-caption { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-.7em); width: min(88%,560px); padding: 0; border: 0; background: none; color: var(--scene-foreground,#1a1a2e); font-size: clamp(22px,5.4vw,32px); text-align: center; pointer-events: none; }
+#scene-title { font-size: inherit; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; text-shadow: 0 1px 12px var(--scene-text-shadow,transparent); }
+#scene-caption { font-size: clamp(13px,3.2vw,16px); line-height: 1.75; margin: 10px 0 0; opacity: .72; overflow-wrap: anywhere; text-shadow: 0 1px 10px var(--scene-text-shadow,transparent); }
+.storyboard-active #ai-story { display: none; }
+.storyboard-active #legend { max-width: calc(100% - 24px); flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.storyboard-active #legend::-webkit-scrollbar { display: none; }
+.storyboard-active .legend-item { flex-shrink: 0; }
+.storyboard-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.storyboard-scene:focus-visible, .storyboard-play:focus-visible, #btn-storyboard-overview:focus-visible { outline: 2px solid #8796c9; outline-offset: 2px; }
+body.dark #storyboard-controls { background: linear-gradient(115deg,#292d42,#26333c); border-color: #3d425d; }
+body.dark .storyboard-head > span { color: #a9b5dc; }
+body.dark .storyboard-play { background: #3a4363; color: #bdc8ed; }
+body.dark .storyboard-scene { border-color: rgba(155,171,207,.3); color: #b4c1de; }
+body.dark .storyboard-scene.selected { border-color: #98abdb; color: #e1e8f9; }
+body.dark #btn-storyboard-overview { background: #3c4668; border-color: #8194c5; color: #e1e8ff; }
+body.dark #btn-storyboard-overview:active { background: #303b5a; }
+@media (max-height: 690px) { #scene-caption { margin-top: 9px; font-size: 13px; } }
+@media (max-width: 350px) { .storyboard-actions { gap: 7px; } .storyboard-play { padding: 7px 9px; min-width: 60px; } }
